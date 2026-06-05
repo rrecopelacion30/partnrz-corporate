@@ -1,0 +1,286 @@
+/* start: globals */
+:root {
+    --ptz-brand-color: #FFCC66;
+    --ptz-body-font-family: "Parkinsans", sans-serif;
+    --ptz-heading-font-family: "Parkinsans", sans-serif;
+    --ptz-heading-font-color: #fff;
+    --ptz-body-font-color: #888888;
+    --ptz-body-font-size: 16px;
+    --ptz-body-line-height: 1.5;
+    --ptz-secondary-color: #191A1B;
+    --ptz-color-dark-blue: #0E104B;
+    --ptz-color-yellow-light: #FFBE17;
+    --ptz-color-yellow-light-2: #FFFBF3;
+    --ptz-color-white-default: #ffffff;
+    --ptz-color-gray-1: #5B5B5B;
+    --ptz-color-dark: #151515;
+    --ptz-border-1: #363636;
+    --ptz-border-2: #282828;
+    --ptz-fw-extra-bold: 800;
+    --ptz-fw-bold: 700;
+    --ptz-fw-semi-bold: 600;
+    --ptz-fw-medium: 500;
+    --ptz-fw-regular: 400;
+    --ptz-fw-light: 300;
+}
+body, html {
+    font-family: var(--ptz-body-font-family);
+    font-size: var(--ptz-body-font-size);
+    font-weight: var(--ptz-fw-regular);
+    color: var(--ptz-body-font-color);
+    line-height: var(--ptz-body-line-height);
+    background-color: var(--ptz-color-dark);
+}
+body.openMenu {
+    overflow: hidden;
+    position: relative;
+}
+body.openMenu .ptz_HeaderOverlay::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+/* end: globals */
+
+/* start: header */
+.ptz_Header {
+    padding-top:30px;
+    padding-bottom:30px;
+}
+@media screen and (max-width: 767px) {
+    .ptz_Header {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+.ptz_Wrapper {
+    background-color: var(--ptz-secondary-color);
+    border-radius: 50px;
+    padding: 0 20px;
+}
+@media screen and (max-width: 991px) {
+    .ptz_Wrapper {
+        padding: 10px 20px;
+    }
+}
+.ptz_Row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px
+}
+@media screen and (max-width: 991px) {
+    .ptz_Row {
+        justify-content: flex-start;
+    }
+}
+.ptz_HeaderLogo img {
+    width: 120px;
+}
+@media screen and (max-width: 450px) {
+    .ptz_HeaderLogo img {
+        width: 80px;
+    }
+}
+@media screen and (max-width: 991px) {
+    .ptz_HeaderLogo {
+        flex: 1;
+    }
+    .ptz_HeaderNavigationWrap {
+        background-color: var(--ptz-color-dark);
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 300px;
+        opacity: 0;
+        transform: translateX(1000px);
+        transition: all .3s ease-in-out;
+    }
+    .ptz_HeaderNavigationWrap.active {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.ptz_NavigationList {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+@media screen and (max-width: 991px) {
+    .ptz_NavigationList {
+        flex-direction: column;
+    }
+    .ptz_NavigationList li {
+        width: 100%;
+    }
+}
+.ptz_NavigationList a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--ptz-color-white-default);
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 27px 25px;
+    font-weight: var(--ptz-fw-semi-bold);
+    position: relative;
+    transition: all .3s ease-in-out;
+}
+@media screen and (max-width: 991px) {
+    .ptz_NavigationList a {
+        width: 100%;
+        padding: 8px 15px;
+        border-top: 1px solid var(--ptz-border-1);
+    }
+    .ptz_NavigationList li:last-child a {
+        border-bottom: 1px solid var(--ptz-border-1);
+    }
+}
+.ptz_NavigationList a:hover,
+.ptz_NavigationList a:focus {
+    color: var(--ptz-brand-color);
+}
+.ptz_NavigationList li.active a {
+    color: var(--ptz-brand-color);
+}
+.ptz_NavigationList a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 25px;
+    height: 2px;
+    margin: auto;
+    background-color: var(--ptz-brand-color);
+    opacity: 0;
+    transition: all .3s ease-in-out;
+}
+.ptz_NavigationList a:hover::before {
+    opacity: 1;
+}
+.ptz_NavigationList li.active a::before {
+    opacity: 1;
+}
+@media screen and (max-width: 991px) {
+    .ptz_NavigationList a:hover::before {
+        display: none;
+    }
+    .ptz_NavigationList li.active a::before {
+        display: none;
+    }
+}
+.ptz_HeaderButton a {
+    display: inline-block;
+    padding: 10px 26px;
+    background-color: var(--ptz-brand-color);
+    border-radius: 50px;
+    color: var(--ptz-color-dark);
+    font-weight: var(--ptz-fw-semi-bold);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+    font-size: 14px;
+}
+@media screen and (max-width: 450px) {
+    .ptz_HeaderButton a {
+        font-size: 10px;
+        padding: 10px 15px;
+    }
+}
+.ptz_HeaderButton a:hover,
+.ptz_HeaderButton a:focus {
+    background-color: var(--ptz-color-white-default);
+}
+.ptz_MobileToggle {
+    display: none;
+    cursor: pointer;
+}
+@media screen and (max-width: 991px) {
+    .ptz_MobileToggle {
+        display: block;
+    }
+}
+.ptz_MobileToggle img {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+.ptz_HeaderTopWrap,
+.ptz_HeaderSocialWrap {
+    display: none;
+}
+@media screen and (max-width: 991px) {
+    .ptz_HeaderTopWrap,
+    .ptz_HeaderSocialWrap {
+        display: block;
+    }
+    .ptz_HeaderTopWrap {
+        padding: 50px 20px 20px 20px;
+    }
+    .ptz_HeaderTopWrap .ptz_HeaderLogo {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .ptz_HeaderTopWrap  .ptz_HeaderLogo img {
+        width: 150px;
+    }
+    .ptz_HeaderSearchBar {
+        position: relative;
+    }
+    .ptz_HeaderSearchBar input {
+        width: 100%;
+        padding: 15px 50px 15px 15px;
+        border: 0;
+        border-radius: 4px;
+        background-color: var(--ptz-secondary-color);
+        color: var(--ptz-color-white-default);
+    }
+    .ptz_HeaderSearchBar button {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        border: 0;
+        background-color: transparent;
+        color: var(--ptz-color-white-default);
+        padding: 10px 20px;
+    }
+    .ptz_HeaderSocialWrap {
+        padding: 20px 20px;
+    }
+    .ptz_HeaderSocialList {
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    .ptz_HeaderSocialList a {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--ptz-brand-color);
+        border: 1px solid var(--ptz-border-1);
+        border-radius: 50px;
+        transition: all .3s ease-in-out;
+    }
+    .ptz_HeaderSocialList a:hover,
+    .ptz_HeaderSocialList a:focus {
+        background-color: var(--ptz-brand-color);
+        border: 1px solid var(--ptz-brand-color);
+        color: var(--ptz-color-dark);
+    }
+}
+/* end: header */
