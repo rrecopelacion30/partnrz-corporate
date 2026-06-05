@@ -44,12 +44,62 @@ body.openMenu .ptz_HeaderOverlay::before {
     bottom: 0;
     background-color: rgba(0,0,0,0.5);
 }
+.ptz_Title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.ptz_Title h2 {
+    font-size: calc(30px + (58 - 30) * ((100vw - 320px) / (1900 - 320)));
+    color: var(--ptz-color-white-default);
+    letter-spacing: -0.03em;
+    font-weight: var(--ptz-fw-semi-bold);
+    margin-bottom: 0px;
+}
+.ptz_Title span {
+    color: rgba(255, 255, 255, 0.3);
+}
+.ptz_Title p {
+    display: inline-block;
+    padding: 6px 20px;
+    border: 1px solid var(--ptz-border-1);
+    border-radius: 50px;
+    font-size: 12px;
+    color: var(--ptz-brand-color);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.touchdownshape {
+    -webkit-animation: alltuchtopdown 5s ease-in-out 0s infinite alternate;
+    animation: alltuchtopdown 5s ease-in-out 0s infinite alternate;
+    animation-duration: 3s;
+}
+.rotateshape {
+    -webkit-animation-name: rotateme;
+    animation-name: rotateme;
+    -webkit-animation-duration: 40s;
+    animation-duration: 40s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
 /* end: globals */
 
 /* start: header */
 .ptz_Header {
     padding-top:30px;
     padding-bottom:30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+header.ptz_Header.sticky {
+    position: fixed;
+    background: transparent;
+    -webkit-animation: 1000ms ease-in-out 0s normal none 1 running fadeInDown;
+    animation: 1000ms ease-in-out 0s normal none 1 running fadeInDown;
 }
 @media screen and (max-width: 767px) {
     .ptz_Header {
@@ -104,6 +154,11 @@ body.openMenu .ptz_HeaderOverlay::before {
     .ptz_HeaderNavigationWrap.active {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+@media screen and (max-width: 350px) {
+    .ptz_HeaderNavigationWrap {
+        width: 100%;
     }
 }
 .ptz_NavigationList {
@@ -222,11 +277,27 @@ body.openMenu .ptz_HeaderOverlay::before {
         display: block;
     }
     .ptz_HeaderTopWrap {
-        padding: 50px 20px 20px 20px;
+        padding: 20px 20px 20px 20px;
     }
     .ptz_HeaderTopWrap .ptz_HeaderLogo {
-        text-align: center;
         margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .ptz_HeaderCloseMenu {
+        width: 30px;
+        height: 30px;
+        background-color: var(--ptz-border-2);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ptz_HeaderCloseMenu svg {
+        transform: rotate(45deg);
+        color: var(--ptz-brand-color);
+        transition: all .3s ease-in-out;
     }
     .ptz_HeaderTopWrap  .ptz_HeaderLogo img {
         width: 150px;
@@ -284,3 +355,257 @@ body.openMenu .ptz_HeaderOverlay::before {
     }
 }
 /* end: header */
+
+/* start: ptz_BannerSection */
+.ptz_BannerSection {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../img/hero_bg.svg");
+    background-size: cover;
+    background-position: bottom center;
+    position: relative;
+}
+.ptz_BannerSection::before {
+    content: "";
+    position: absolute;
+    background-image: url("../img/hero_bg_shape.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+}
+.ptz_BannerWrapper {
+    max-width: 600px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    z-index: 2;
+}
+.ptz_BannerContent {
+    text-align: center;
+}
+.ptz_BannerTagline {
+    display: inline-block;
+    padding: 6px 20px;
+    border: 1px solid var(--ptz-border-1);
+    border-radius: 50px;
+    font-size: 12px;
+    color: var(--ptz-brand-color);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.ptz_BannerTitle {
+    font-size: calc(30px + (58 - 30) * ((100vw - 320px) / (1900 - 320)));
+    color: var(--ptz-color-white-default);
+    letter-spacing: -0.03em;
+    font-weight: var(--ptz-fw-semi-bold);
+    margin-bottom: 30px;
+}
+.ptz_BannerTitle span {
+    color: rgba(255, 255, 255, 0.3);
+}
+.ptz_BannerDesc {
+    font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (1900 - 320)));
+    margin-bottom: 40px;
+    color: #fff;
+}
+.ptz_BannerInput {
+    position: relative;
+}
+.ptz_BannerInput input {
+    width: 100%;
+    width: 100%;
+    border: 1px solid var(--ptz-border-1);
+    background: var(--ptz-secondary-color);
+    border-radius: 30px;
+    font-size: 14px;
+    color: var(--ptz-color-white-default);
+    padding: 14px 10px 14px 14px;
+    height: 50px;
+}
+.ptz_BannerInput button {
+    display: inline-block;
+    padding: 10px 26px;
+    background-color: var(--ptz-brand-color);
+    border-radius: 50px;
+    border: 0;
+    color: var(--ptz-color-dark);
+    font-weight: var(--ptz-fw-semi-bold);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+@media screen and (max-width: 767px) {
+    .ptz_BannerInput button {
+        font-size: 10px;
+        padding: 10px 15px;
+    }
+}
+.ptz_BannerInput button:hover,
+.ptz_BannerInput button:focus {
+    background-color: var(--ptz-color-white-default);
+}
+.ptz_BannerShape img.image01 {
+    position: absolute;
+    bottom: 50px;
+    left: 10%;
+    width: 140px;
+}
+.ptz_BannerShape img.image02 {
+    position: absolute;
+    bottom: -15%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 200px;
+}
+.ptz_BannerShape img.image03 {
+    position: absolute;
+    bottom: 50px;
+    right: 10%;
+    width: 140px;
+}
+@media screen and (max-width: 767px) {
+    .ptz_BannerShape img.image01 {
+        left: 5%;
+    }
+    .ptz_BannerShape img.image03 {
+        right: 5%;
+    }
+    .ptz_BannerShape img.image01,
+    .ptz_BannerShape img.image03 {
+        width: 60px;
+    }
+    .ptz_BannerShape img.image02 {
+        width: 80px;
+        bottom: -5%;
+    }
+}
+/* end: ptz_BannerSection */
+
+/* start: ptz_BrandlogoSection */
+.ptz_BrandlogoSection {
+    padding-top: 200px;
+    padding-bottom: 50px;
+}
+@media screen and (max-width: 767px) {
+    .ptz_BrandlogoSection {
+        padding-top: 80px;
+    }
+}
+.ptz_BrandlogoCard img {
+    opacity: 0.3;
+    transition: all .3s ease-in-out;
+}
+.ptz_BrandlogoCard img:hover {
+    opacity: 1;
+}
+.ptz_BrandlogoList .owl-item.center .ptz_BrandLogoItem img {
+    opacity: 1;
+}
+/* end: ptz_BrandlogoSection */
+
+/* start: ptz_ServiceSection */
+.ptz_ServiceSection {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.ptz_ServiceCard {
+    position: relative;
+    height: 100%;
+}
+@media screen and (max-width: 991px) {
+    .ptz_ServiceCard {
+        margin-bottom: 19px;
+        height: 539px;
+    }
+}
+.ptz_ServiceCard::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 91px;
+    height: 79px;
+    background-image: url(../img/ser-layer-dark.png);
+    border-radius: 0 0 20px 0;
+}
+.ptz_ServiceCard img {
+    height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    object-fit: cover;
+}
+.ptz_ServiceContent {
+    position: absolute;
+    bottom: 46px;
+    left: 43px;
+    max-width: 338px;
+}
+.ptz_ServiceContent.v2 {
+    position: absolute;
+    bottom: auto;
+    top: 52px;
+    left: 43px;
+}
+.ptz_ServiceCard.v3 .title {
+    position: absolute;
+    bottom: 11px;
+    left: 50px;
+    font-size: 25px;
+    line-height: 35px;
+    font-weight: 400;
+    margin-bottom: 14px;
+    color: var(--ptz-color-dark);
+    max-width: 269px;
+    letter-spacing: 1px;
+}
+.ptz_ServiceContent .title a {
+    font-size: 25px;
+    line-height: 35px;
+    font-weight: 400;
+    margin-bottom: 14px;
+    color: var(--ptz-color-white-default);
+    text-decoration: none;
+}
+.ptz_ServiceContent p {
+    color: var(--ptz-color-white-default);
+}
+.ptz_ServiceCard.v3 {
+    position: relative;
+    height: unset;
+    margin-bottom: 19px;
+}
+.ptz_ServiceCard.v3 .title a {
+    color: var(--ptz-color-dark);
+    text-decoration: none;
+}
+.ptz_ServiceButton {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    background-color: var(--ptz-color-dark);
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 10px;
+    display: inline-block;
+    line-height: 6px;
+    overflow: hidden;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+    color: var(--ptz-color-white-default);
+}
+/* end: ptz_ServiceSection */

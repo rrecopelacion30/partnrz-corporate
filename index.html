@@ -8,10 +8,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="dist/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="dist/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="dist/css/animate.min.css">
     <link rel="stylesheet" href="dist/css/style.css">
 </head>
 <body>
@@ -37,6 +40,9 @@
                                             <a href="/">
                                                 <img src="dist/img/logo-light.webp" alt="Partnrz Logo">
                                             </a>
+                                            <div class="ptz_HeaderCloseMenu">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </div>
                                         </div>
                                         <div class="ptz_HeaderSearchBar">
                                             <input type="search" name="test" id="" placeholder="Search here ...">
@@ -102,11 +108,138 @@
         </header>
         <!-- end: header -->
 
+        <!-- start: banner section -->
+        <section class="ptz_BannerSection">
+            <div class="ptz_BannerWrapper">
+                <div class="ptz_BannerContent">
+                    <p class="ptz_BannerTagline">Built on HTML. Powered by Reco</p>
+                    <h1 class="ptz_BannerTitle">
+                        Investments &
+                        <span>partnerships</span> to scale
+                        resilient <span>companies</span>
+                    </h1>
+                    <p class="ptz_BannerDesc">
+                        We partner with ambitious founders to accelerate growth through capital, network and hands-on support. We look for opportunities in technology, software and innovative markets shaping the future.
+                    </p>
+                    <div class="ptz_BannerForm">
+                        <div class="ptz_BannerInput">
+                            <input type="email" name="" id="" placeholder="Email Address">
+                            <button type="submit">Get Early Access</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ptz_BannerShape">
+                <img src="dist/img/hero_img01.png" class="touchdownshape image01" alt="shape">
+                <img src="dist/img/hero_img02.png" class="rotateshape image02" alt="shape">
+                <img src="dist/img/hero_img03.png" class="touchdownshape image03" alt="shape">
+            </div>
+        </section>
+        <!-- end: banner section -->
+
+        <!-- start: brand logos -->
+         <section class="ptz_BrandlogoSection">
+            <div class="container">
+                <div class="row">
+                    <div class="ptz_BrandlogoWrappper">
+                        <div id="ptz_BrandlogoList" class="ptz_BrandlogoList owl-carousel owl-theme">
+                            <div class="ptz_BrandLogoItem">
+                                <a href="javascript:void(0)" class="ptz_BrandlogoCard">
+                                    <img src="dist/img/logo-light.webp" alt="">
+                                </a>
+                            </div>
+                            <div class="ptz_BrandLogoItem">
+                                <a href="javascript:void(0)" class="ptz_BrandlogoCard">
+                                    <img src="dist/img/logo-light.webp" alt="">
+                                </a>
+                            </div>
+                            <div class="ptz_BrandLogoItem">
+                                <a href="javascript:void(0)" class="ptz_BrandlogoCard">
+                                    <img src="dist/img/logo-light.webp" alt="">
+                                </a>
+                            </div>
+                            <div class="ptz_BrandLogoItem">
+                                <a href="javascript:void(0)" class="ptz_BrandlogoCard">
+                                    <img src="dist/img/logo-light.webp" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </section>
+        <!-- end: brand logos -->
+         
+        <!-- start: services -->
+         <section class="ptz_ServiceSection">
+            <div class="container">
+                <div class="ptz_Title">
+                    <p>
+                        Crypto Made Accessible
+                    </p>
+                    <h2>
+                        Making Crypto <span>Development</span> <br> Accessible
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="ptz_ServiceCard">
+                            <img src="dist/img/service6-1.png" alt="AI Agency &amp; Technology HTML Template">
+                            <div class="ptz_ServiceContent">
+                                <h4 class="title"><a href="/service" title="">Neural Network Development</a></h4>
+                                <p>Custom design and development of neural network architectures tailored to your
+                                    specific business needs</p>
+                            </div>
+                            <a href="#" class="ptz_ServiceButton">
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="ptz_ServiceCard">
+                            <img src="dist/img/service6-2.png" alt="AI Agency &amp; Technology HTML Template">
+                            <div class="ptz_ServiceContent v2">
+                                <h4 class="title"><a href="/service" title="">Training &amp; Optimization</a></h4>
+                                <p> Fine-tuning neural networks using advanced algorithms to achieve maximum performance
+                                    and accuracy.</p>
+                            </div>
+                            <a href="#" class="ptz_ServiceButton">
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="ser-info">
+                            <div class="ptz_ServiceCard v3">
+                                <img src="dist/img/service3.png" alt="AI Agency &amp; Technology HTML Template">
+                                <h3 class="title"><a href="">Neural Network Integration</a></h3>
+                            </div>
+                            <div class="ptz_ServiceCard v4">
+                                <img src="dist/img/service4.png" alt="AI Agency &amp; Technology HTML Template">
+                                <div class="ptz_ServiceContent">
+                                    <h4 class="title"><a href="/service" title="">Neural Network Consulting</a></h4>
+                                    <p>Expert guidance and strategic advice on integrating neural networks into your
+                                        existing systems</p>
+                                </div>
+                                <a href="#" class="ptz_ServiceButton">
+                                    <i class="fa-solid fa-arrow-right-long"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </section>
+        <!-- end: services -->
+         
+        <div style="height: 10000px;"></div>
+
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js" integrity="sha512-6BTOlkauINO65nLhXhthZMtepgJSghyimIalb+crKRPhvhmsCdnIuGcVbR5/aQY2A+260iC1OPy1oCdB6pSSwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="dist/js/owl.carousel.min.js"></script>
     <script src="dist/js/app.js"></script>
 </body>
 </html>
