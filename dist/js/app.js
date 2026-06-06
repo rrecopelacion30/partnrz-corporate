@@ -26,6 +26,13 @@ $(document).ready(function() {
             $('body').removeClass('sticky')
         }
     });
+    //scroll top
+    $('.ptz_ScrollTopWrapper').on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+    });
     //brand logo carousel
     $("#ptz_BrandlogoList").owlCarousel({
         loop: true,
@@ -50,5 +57,33 @@ $(document).ready(function() {
                 items: 6
             }
         }
+    });
+    //faq accordion
+    var $container = $('.ptz_FaqWrapper');
+    // Reset all (safety)
+    $container.find('.ptz_FaqCardItem')
+        .removeClass('active')
+        .find('.ptz_FaqContent')
+        .hide();
+    // Open first item
+    var $firstItem = $container.find('.ptz_FaqCardItem').first();
+    $firstItem.addClass('active')
+        .find('.ptz_FaqContent')
+        .show();
+    // Accordion click behavior
+    $container.on('click', '.ptz_FaqCardItem .ptz_FaqHeader', function () {
+        var $wrapper = $(this).closest('.ptz_FaqCardItem');
+        var $content = $wrapper.find('.ptz_FaqContent');
+        var $siblings = $wrapper.siblings('.ptz_FaqCardItem');
+
+        // Toggle clicked item
+        $wrapper.toggleClass('active');
+        $content.stop(true, true).slideToggle(250);
+
+        // Close others
+        $siblings.removeClass('active')
+            .find('.ptz_FaqContent')
+            .stop(true, true)
+            .slideUp(250);
     });
 })
