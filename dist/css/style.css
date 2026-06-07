@@ -354,6 +354,73 @@ header.ptz_Header.sticky {
         color: var(--ptz-color-dark);
     }
 }
+.ptz_GlobalWrapper {
+    position: relative;
+}
+.ptz_HeaderButtonGlobal {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.ptz_GlobalIcon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.ptz_GlobalIcon svg {
+    font-size: 30px;
+    color: var(--ptz-brand-color);
+}
+.ptz_GlobalList {
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    right: 0;
+    top: 54px;
+    width: 200px;
+    padding: 15px 15px;
+    background-color: var(--ptz-border-2);
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+    border: 1px solid var(--ptz-border-1);
+    opacity: 0;
+    visibility: hidden;
+}
+.ptz_GlobalList.active {
+    opacity: 1;
+    visibility: visible;
+}
+.ptz_GlobalList::before {
+    content: "";
+    position: absolute;
+    right: 8px;
+    top: -15px;
+    border-bottom: 15px solid var(--ptz-border-2);
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+}
+.ptz_GlobalList a {
+    list-style: none;
+    text-decoration: none;
+    font-size: 12px;
+    color: var(--ptz-color-white-default);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all .3s ease-in-out;
+}
+.ptz_GlobalList a:hover,
+.ptz_GlobalList a:focus {
+    color: var(--ptz-brand-color);
+}
+.ptz_GlobalList svg {
+    width: 25px;
+    height: 25px;
+}
 /* end: header */
 
 /* start: ptz_BannerSection */

@@ -33,6 +33,16 @@ $(document).ready(function() {
             scrollTop: 0
         }, 500);
     });
+    //toggle global language
+    $('.ptz_GlobalIcon').click(function(e) {
+        e.preventDefault()
+        $('.ptz_GlobalList').toggleClass('active');
+    });
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.ptz_GlobalIcon').length) {
+            $('.ptz_GlobalList').removeClass('active');
+        }
+    });
     //brand logo carousel
     $("#ptz_BrandlogoList").owlCarousel({
         loop: true,
